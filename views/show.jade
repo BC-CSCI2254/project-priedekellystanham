@@ -1,0 +1,51 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+
+    style
+      include stylesheets/Final.css
+    script
+      include javascript/Final.js
+    script.
+      var tests = !{JSON.stringify(tests)}
+      var len = tests.length - 1;
+      console.log(tests);
+      console.log(tests[len].questions[1][0]);
+
+      var xxx = 0;
+      function questionContent() {
+        $('#questionid').html(tests[len].questions[0][0]);
+        $('#a').html(tests[len].questions[0][1]);
+        $('#b').html(tests[len].questions[0][2]);
+        $('#c').html(tests[len].questions[0][3]);
+        $('#d').html(tests[len].questions[0][4]);
+      }
+      function nextQuestion(number) {
+        xxx = xxx+1;
+        $('#questionid').html(tests[len].questions[xxx][0]);
+        $('#a').html(tests[len].questions[xxx][1]);
+        $('#b').html(tests[len].questions[xxx][2]);
+        $('#c').html(tests[len].questions[xxx][3]);
+        $('#d').html(tests[len].questions[xxx][4]);
+        return xxx;
+      }
+  body(onload='questionContent()')
+    #question.container.text-center
+      .row
+        #a.col-sm-3(onclick='nextQuestion(xxx)')
+        .col-sm-6
+        #b.col-sm-3(onclick='nextQuestion(xxx)')
+        .row
+          #questionid.col-sm-12
+        .row
+          #c.col-sm-3(onclick='nextQuestion(xxx)')
+          .col-sm-3
+            button#homebutton.btn.btn-default.btn-sm(type='home', onclick=' home()') Home
+          .col-sm-3
+            button#finishbutton.btn.btn-default.btn-sm(type='finish', onclick=' finish()') Finish
+          #d.col-sm-3(onclick='nextQuestion(xxx)')

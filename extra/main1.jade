@@ -1,0 +1,162 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    link(rel='stylesheet', type='text/css', href='Final.css')
+  body
+    .jumbotron.text-center
+      h1 Quiz App
+      form(action='UserHomePage.html')
+        span.form-group
+          label(for='username') Username:
+          input#username.form-inline(type='username', placeholder='Enter Username')
+        button.btn.btn-default.btn-sm(type='submit') Submit
+        script.
+          function submit() {
+          location.href = "UserHomePage.html";
+          console.log("Leaving");
+          }
+        button.btn.btn-default.btn-sm(type='button', onclick=' guest()') Guest
+        script.
+          function guest() {
+          location.href = "QuestionFormPage.html";
+          console.log("Leaving");
+          }
+    .container.text-center
+      img.img-rounded(src='Gasson.jpg', width='600', height='350')
+
+
+//////////////////////
+doctype
+html
+  head
+    meta(charset='utf-8')
+    title Begin Testing Now
+    style
+      include stylesheets/main.css
+      link(rel='styelsheet', href='https://fonts.googleapis.com/css?family=Cinzel:900|Lato:300i', type='text/css')
+
+  body
+  form(action="/views/main", method="post")
+    .header
+      p Welcome to Tester
+    .description
+      p
+      | Enter your username to view previously made tests, or automatically create a new username and begin right away!
+    .input
+      input#email.button(type='text', name='username', placeholder='USERNAME')
+      input#submit.button(type='submit', value='Begin')
+
+
+      ///////////
+
+      doctype
+      html
+        head
+          title #{title} - My Site
+          link(rel='stylesheet', href='/stylesheets/style.css')
+
+        block content
+        h1= title
+        form(action="/views/quizzes", method="post")
+            div.input
+                span.label Title
+                input(type="text", name="title")
+
+            div.input
+                span.label Question
+                input(type="text", name="question")
+            div.input
+                span.label Answer1
+                input(type="text", name="answer")
+            div.input
+                span.label Answer2
+                input(type="text", name="answer")
+            div.input
+                span.label Answer3
+                input(type="text", name="answer")
+            div.input
+                span.label Answer4
+                input(type="text", name="answer")
+            div.input
+                span.label Question
+                input(type="text", name="question")
+            div.input
+               span.label Answer
+               input(type="text", name="answer")
+            div.input
+               span.label Answer2
+               input(type="text", name="answer")
+            div.input
+               span.label Answer3
+               input(type="text", name="answer")
+            div.input
+               span.label Answer4
+               input(type="text", name="answer")
+            div.actions
+                input(type="submit", value="add")
+
+            h1 Tests
+           !{JSON.stringify(tests)}
+
+
+           ////////
+           doctype html
+           html(lang='en')
+             head
+               meta(charset='utf-8')
+               meta(name='viewport', content='width=device-width, initial-scale=1')
+               link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+               script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js')
+               script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+               link(rel='stylesheet', type='text/css', href='Final.css')
+             body
+               .QuestionContainer
+                 h2#questionNumber Question #1
+                 form(action="/views/main", method="post")
+                   .form-group
+                     label(form='question') Question:
+                     input.form-control(type='question', placeholder='Enter question')
+                   .form-group
+                     label(for='Answer') Answer:
+                     span.checkbox
+                       label
+                         input(type='checkbox', name='chk_checked')
+                         |  Correct Answer?
+                     input.form-control(type='Answer', name = "answer", placeholder='Enter possible answer')
+                   .form-group
+                     label(for='Answer') Answer:
+                     span.checkbox
+                       label
+                         input(type='checkbox', name='chk_checked')
+                         |  Correct Answer?
+                     input.form-control(type='Answer',  name = "answer", placeholder='Enter possible answer')
+                   .form-group
+                     label(for='Answer') Answer:
+                     span.checkbox
+                       label
+                         input(type='checkbox', name='chk_checked')
+                         |  Correct Answer?
+                     input.form-control(type='Answer',  name = "answer", placeholder='Enter possible answer')
+                   .form-group
+                     label(for='Answer') Answer:
+                     span.checkbox
+                       label
+                         input(type='checkbox', name='chk_checked')
+                         |  Correct Answer?
+                     input.form-control(type='Answer',  name = "answer", placeholder='Enter possible answer')
+               .container
+                 button.btn.btn-default.btn-lg(type='button', onclick=' addQuestion()') Add Question
+                 script.
+                   var x = 2;
+                   function addQuestion() {
+                   $(".QuestionContainer:last").clone().insertAfter(".QuestionContainer:last");
+                   var question = $("h2").last()
+                   question.html("Question #" + x);
+                   x++;
+                   }
+                 button.btn.btn-default.pull-right.btn-lg(type='button', value = 'add') Done
