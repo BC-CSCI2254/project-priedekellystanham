@@ -122,68 +122,65 @@ app.post('/views/quizzes', function (req, res) {
 
   var checked = [];
   if(req.body.chk_checked1 != undefined){
-    checked.push("Q1: " + 1);
-  }
+    checked.push("a");
+  } else checked.push(0);
   if(req.body.chk_checked2 != undefined){
-    checked.push("Q1: " + 2);
-  }
+    checked.push("b");
+  } else checked.push(0);
   if(req.body.chk_checked3 != undefined){
-    checked.push("Q1: " + 3);
-  }
+    checked.push("c");
+  } else checked.push(0);
   if(req.body.chk_checked4 != undefined){
-    checked.push("Q1: " + 4);
-  }
+    checked.push("d");
+  } else checked.push(0);
   if(req.body.chk_checked5 != undefined){
-    checked.push("Q2: " + 1);
-  }
+    checked.push("a");
+  } else checked.push(0);
   if(req.body.chk_checked6 != undefined){
-    checked.push("Q2: " + 2);
-  }
+    checked.push("b");
+  } else checked.push(0);
   if(req.body.chk_checked7 != undefined){
-    checked.push("Q2: " + 3);
-  }
+    checked.push("c");
+  } else checked.push(0);
   if(req.body.chk_checked8 != undefined){
-    checked.push("Q2: " + 4);
-  }
-
+    checked.push("d");
+  } else checked.push(0);
   if(req.body.chk_checked9 != undefined){
-    checked.push("Q3: " + 1);
-  }
+    checked.push("a");
+  } else checked.push(0);
   if(req.body.chk_checked10 != undefined){
-    checked.push("Q3: " + 2);
-  }
+    checked.push("b");
+  } else checked.push(0);
   if(req.body.chk_checked11 != undefined){
-    checked.push("Q3: " + 3);
-  }
+    checked.push("c");
+  } else checked.push(0);
   if(req.body.chk_checked12 != undefined){
-    checked.push("Q3: " + 4);
-  }
-
+    checked.push("d");
+  } else checked.push(0);
   if(req.body.chk_checked13 != undefined){
-    checked.push("Q4: " + 1);
-  }
+    checked.push("a");
+  } else checked.push(0);
   if(req.body.chk_checked14 != undefined){
-    checked.push("Q4: " + 2);
-  }
+    checked.push("b");
+  } else checked.push(0);
   if(req.body.chk_checked15 != undefined){
-    checked.push("Q4: " + 3);
-  }
+    checked.push("c");
+  } else checked.push(0);
   if(req.body.chk_checked16 != undefined){
-    checked.push("Q4: " + 4);
-  }
-
+    checked.push("d");
+  } else checked.push(0);
   if(req.body.chk_checked17 != undefined){
-    checked.push("Q5: " + 1);
-  }
+    checked.push("a");
+  } else checked.push(0);
   if(req.body.chk_checked18 != undefined){
-    checked.push("Q5: " + 2);
-  }
+    checked.push("b");
+  } else checked.push(0);
   if(req.body.chk_checked19 != undefined){
-    checked.push("Q5: " + 3);
-  }
+    checked.push("c");
+  } else checked.push(0);
   if(req.body.chk_checked20 != undefined){
-    checked.push("Q5: " + 4);
-  }
+    checked.push("d");
+  } else checked.push(0);
 //  console.log(checked);
   //console.log(req.body.chk_checked);
 //  console.log(req.body.chk_checked2);
@@ -238,6 +235,7 @@ app.post('/views/quizzes', function (req, res) {
     console.log("redirect");*/
 
     res.redirect('show');
+    res.redirect('results');
     //res.sendFile('QuestionPage.html', { root: path.join(__dirname, '/views') });
 });
 
@@ -263,13 +261,31 @@ app.get('/views/show', function (req, res) {
   })
 })
 
+
 app.post('/views/show', function (req, res) {
     res.redirect('results');
   })
 
 
 app.get('/views/results', function (req, res) {
-    res.render('results');
+  db.collection('tests').find().toArray((err, result) => {
+    if (err) return console.log(err)
+
+    var ftests = [];
+
+    var i = 0;
+    var k = 0;
+    while(i != result.length){
+      if(result[i].username == uN){
+        ftests[k] = result[i];
+        //console.log(result[i]);
+        k++;
+      }
+      i++;
+    }
+
+    res.render('results', {ftests});
+  })
   })
 
 

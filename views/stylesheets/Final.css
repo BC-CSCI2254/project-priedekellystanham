@@ -4,61 +4,6 @@ height: 100%;
 width: 100%;
 }
 
-#a {
-  background-color: lightblue;
-  height:100px;
-  color:white;
-  padding-top: 15px;
-  margin-bottom: 200px;
-
-}
-#b {
-  background-color: lightblue;
-  height:100px;
-  color:white;
-  padding-top: 15px;
-  margin-bottom: 200px;
-}
-#c {
-  background-color: lightblue;
-  height:100px;
-  color:white;
-  padding-top: 15px;
-  margin-top: 200px;
-}
-#d {
-  background-color: lightblue;
-  height:100px;
-  color:white;
-  padding-top: 15px;
-  margin-top: 200px;
-}
-
-#questionid {
-  font-size: 24px;
-  margin-bottom
-}
-
-#homebutton {
-  margin-top: 225px;
-  height: 50px;
-  width: 100px;
-}
-
-#finishbutton {
-  margin-top: 225px;
-  height: 50px;
-  width: 100px;
-}
-
-#progressBar {
-  width: 450px;
-}
-
-button{
-  margin-top: 20px;
-}
-
 .QuestionContainer {
     margin-left: 20px;
     margin-right: 200px;
@@ -99,10 +44,166 @@ input {
     margin-right: 70px;
 }
 
-body {
+.row {
+  width:300px;
 }
 
-#questionshow{
-  margin-top: 10px;
-  
+
+  #a {
+    display: inline-block;
+  background-color: #3498DB;
+  border-bottom: 5px solid #2980B9;
+  text-shadow: 0px -2px #2980B9;
+  text-align: center;
+  color:white;
+  padding-top: 30px;
+  width:300px;
+  height: 150px;
+  border-radius: 10px;
+  padding-left: 10px;
+  margin-left: 20px;
+  margin-top: 20px;
+
+
+  }
+
+
+  #b {
+    display: inline-block;
+    background-color: #3498DB;
+    border-bottom: 5px solid #2980B9;
+    text-shadow: 0px -2px #2980B9;
+    text-align: center;
+    color:white;
+    padding-top: 30px;
+    width:300px;
+    height: 150px;
+    border-radius: 10px;
+    padding-left: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-right: 20px;
+    float: right;
+  }
+
+#question {
+  text-align: center;
+  font-size: 25px;
+  margin-top: 141px;
+  margin-bottom: 141px;
+
+  }
+
+  #c {
+    display: inline-block;
+  background-color: #3498DB;
+  border-bottom: 5px solid #2980B9;
+  text-shadow: 0px -2px #2980B9;
+  text-align: center;
+  color:white;
+  padding-top: 30px;
+  width:300px;
+  height: 150px;
+  border-radius: 10px;
+  padding-left: 10px;
+  margin-left: 20px;
+  position: fixed;
+  bottom: 20px;
+
+  }
+
+  #d {
+    display: inline-block;
+    background-color: #3498DB;
+    border-bottom: 5px solid #2980B9;
+    text-shadow: 0px -2px #2980B9;
+    text-align: center;
+    color:white;
+    padding-top: 30px;
+    width:300px;
+    height: 150px;
+    border-radius: 10px;
+    padding-left: 10px;
+    margin-left: 10px;
+    margin-right: 20px;
+    float: right;
+    position: fixed;
+    bottom: 20px;;
+    right: 0;
+  }
+
+  #Home {
+    display: inline-block;
+    margin-left: 12%;
+    border-radius: 28px;
+    height:50px;
+    width: 100px;
+    margin-top:20px;
+    position: fixed;
+    bottom: 50px;;
+    left: 250px;
+
+  }
+
+
+@import url(http://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css);
+body{
+  background: #ECECEC;
+  margin:0px ;
+  color:#333;
+}
+#Finish{
+  background: #ECECEC;
+  border-radius: 15px;
+  display: block;
+  font-family: arial;
+  font-weight: bold;
+  color:#7f7f7f;
+  text-decoration: none;
+  text-shadow:0px 1px 0px #fff;
+  border:1px solid #a7a7a7;
+  width: 145px;
+  margin:0px auto;
+  box-shadow: 0px 2px 1px white inset, 0px -2px 8px white, 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition:box-shadow 0.5s;
+  height: 50px;
+  position: fixed;
+  right:400px;
+  bottom: 80px;
+}
+#Home {
+  background: #ECECEC;
+  border-radius: 15px;
+  padding: 10px 20px;
+  display: inline-block;
+  font-family: arial;
+  font-weight: bold;
+  color:#7f7f7f;
+  text-decoration: none;
+  text-shadow:0px 1px 0px #fff;
+  border:1px solid #a7a7a7;
+  width: 145px;
+  margin:30px auto;
+  box-shadow: 0px 2px 1px white inset, 0px -2px 8px white, 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition:box-shadow 0.5s;
+  position: fixed;
+  left: 400px;
+}
+
+#results {
+  border-style: solid;
+  border-width: thin;
+  border-radius: 5px;
+  font:60px Georgia, Garamond, Serif
+}
+
+#score {
+    font:45px Georgia, Garamond, Serif
+}
+#home2 {
+  margin-right: 10px;
+}
+
+#testcontent{
+  font-size: 10px;
 }

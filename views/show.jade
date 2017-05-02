@@ -9,7 +9,7 @@ html(lang='en')
     link(href='/stylesheets/Final.css', rel='stylesheet')
     link(href='/javascript/Final.js', type='text/javascript')
     style
-      include stylesheets/Final1.css
+      include stylesheets/Final.css
     script
       include javascript/Final.js
     script.
@@ -19,34 +19,78 @@ html(lang='en')
       console.log(tests[len].questions[1][0]);
 
       var xxx = 0;
+      var correct = 0;
+
+      function answerContent(correct){
+      $('#correct').html(correct + "/5");
+      }
+
       function questionContent() {
-        $('#questionid').html(tests[len].questions[0][0]);
+        $('#question').html(tests[len].questions[0][0]);
         $('#a').html(tests[len].questions[0][1]);
         $('#b').html(tests[len].questions[0][2]);
         $('#c').html(tests[len].questions[0][3]);
         $('#d').html(tests[len].questions[0][4]);
       }
+
+      function isInArray(value, array) {
+        return array.indexOf(value) > -1;
+      }
+
       function nextQuestion(number) {
+      var clicked = $(event.currentTarget).attr('id');
+      var answerArray1 = tests[len].correct.slice(0,3);
+      var answerArray2 = tests[len].correct.slice(4,7);
+      var answerArray3 = tests[len].correct.slice(8,11);
+      var answerArray4 = tests[len].correct.slice(12,15);
+      var answerArray5 = tests[len].correct.slice(16,19);
+      console.log(clicked);
+      if (xxx == 0) {
+      if (isInArray(clicked, answerArray1)) {
+      console.log("hi");
+      correct++;
+      }
+      }
+      if (xxx == 1) {
+      if (isInArray(clicked, answerArray2)) {
+      correct++;
+      }
+      }
+      if (xxx == 2) {
+      if (isInArray(clicked, answerArray3)) {
+      correct++;
+      }
+      }
+      if (xxx == 3) {
+      if (isInArray(clicked, answerArray4)) {
+      correct++;
+      }
+      }
+      if (xxx == 4) {
+      if (isInArray(clicked, answerArray5)) {
+      correct++;
+      }
+      location.href = "results";
+      }
+      else {
         xxx = xxx+1;
-        $('#questionid').html(tests[len].questions[xxx][0]);
+        $('#question').html(tests[len].questions[xxx][0]);
         $('#a').html(tests[len].questions[xxx][1]);
         $('#b').html(tests[len].questions[xxx][2]);
         $('#c').html(tests[len].questions[xxx][3]);
         $('#d').html(tests[len].questions[xxx][4]);
-        return xxx;
+        return xxx, correct;
       }
+      }
+
   body(onload='questionContent()')
-    #question.container.text-center
-      .row
-        #a.col-sm-3(onclick='nextQuestion(xxx)')
-        .col-sm-6
-        #b.col-sm-3(onclick='nextQuestion(xxx)')
-        .row
-          #questionid.col-sm-12
-        .row
-          #c.col-sm-3(onclick='nextQuestion(xxx)')
-          .col-sm-3
-            button#homebutton.btn.btn-default.btn-sm(type='home', onclick=' home()') Home
-          .col-sm-3
-            button#finishbutton.btn.btn-default.btn-sm(type='finish', onclick=' finish()') Finish
-          #d.col-sm-3(onclick='nextQuestion(xxx)')
+  #row1
+  #a(onclick='nextQuestion(xxx)')  a
+  #b(onclick='nextQuestion(xxx)')  b
+  #question  Question
+  #c(onclick='nextQuestion(xxx)')  c
+  button#Home(onclick='home()')  Home
+  button#Finish(onclick='finish()')  Finish
+  a.button(href='#')
+  i.icon-chevron-right
+  #d(onclick='nextQuestion(xxx)')  d

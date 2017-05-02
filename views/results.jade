@@ -12,18 +12,32 @@ html(lang='en')
       include stylesheets/Final.css
     script
       include javascript/Final.js
-  body
-    .container.text-center
-      .row.content
-        .col-sm-2.sidenav
-        .col-sm-8.text-left
-          h1 Results
-          hr
-          h3 # Correct
-          span  Fraction
-          h3 # Incorrect
-          span  Fraction
-        .col-sm-2
-          h1
-            button.btn.btn-default.btn-lg(type='home', onclick=' home()') Home
-        button.btn.btn-default.btn-lg(type='tryagain', onclick=' tryagain()') Try Again?
+    script.
+      var finaltest = !{JSON.stringify(ftests)}
+      var len = finaltest.length - 1;
+      var user = finaltest[len].username;
+
+      function questionContent() {
+        $('#q1').html(finaltest[len].questions[0][0]);
+        $('#ans1').html(finaltest[len].questions[0][1]);
+        $('#ans2').html(finaltest[len].questions[0][2]);
+        $('#ans3').html(finaltest[len].questions[0][3]);
+        $('#ans4').html(finaltest[len].questions[0][4]);
+      }
+
+    body(onload='questionContent()')
+        .container
+          header#results Results
+          h3#score Score: correct / 5
+          h4 What went wrong:
+            p#testcontent
+              #q1(style='font-size:')
+              #ans1  a
+              #ans2  b
+              #ans3  c
+              #ans4  d
+
+
+          button.btn.btn-default.btn-lg#home2(type='home', onclick=' home()') Home
+          button.btn.btn-default.btn-lg(type='tryagain', onclick=' tryagain()') Try Again?
+          !{JSON.stringify(ftests)}
