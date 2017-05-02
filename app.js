@@ -38,23 +38,15 @@ var userSchema = new Schema ({
   userID: String
 })
 
-var questionSchema = new Schema ({
-  question: [{}],
-  answers: [{}]
-})
-
 var testSchema = new Schema({
     username: String,
     testName: String,
     questions: [],
-    answers: [],
     correct: []
 });
 
 var User = mongoose.model('User', userSchema);
 var Test = mongoose.model('Test', testSchema);
-var Question = mongoose.model('Question', questionSchema);
-
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -105,13 +97,14 @@ app.get('/views/quizzes', function (req, res) {
 
 app.post('/views/quizzes', function (req, res) {
 
- var i = 0;
+  console.log(req.body);
+  var i = 0;
   var j = 0;
   var k = 0;
   var numAns = 0;
   var q = [ ];
 
-  while (i < 2){
+  while (i < 5){
     //console.log("hi");
     q[i] = [];
     q[i][j] = req.body.question[i]; //add id here if needed other [i][0] == question
@@ -152,6 +145,45 @@ app.post('/views/quizzes', function (req, res) {
   if(req.body.chk_checked8 != undefined){
     checked.push("Q2: " + 4);
   }
+
+  if(req.body.chk_checked9 != undefined){
+    checked.push("Q3: " + 1);
+  }
+  if(req.body.chk_checked10 != undefined){
+    checked.push("Q3: " + 2);
+  }
+  if(req.body.chk_checked11 != undefined){
+    checked.push("Q3: " + 3);
+  }
+  if(req.body.chk_checked12 != undefined){
+    checked.push("Q3: " + 4);
+  }
+
+  if(req.body.chk_checked13 != undefined){
+    checked.push("Q4: " + 1);
+  }
+  if(req.body.chk_checked14 != undefined){
+    checked.push("Q4: " + 2);
+  }
+  if(req.body.chk_checked15 != undefined){
+    checked.push("Q4: " + 3);
+  }
+  if(req.body.chk_checked16 != undefined){
+    checked.push("Q4: " + 4);
+  }
+
+  if(req.body.chk_checked17 != undefined){
+    checked.push("Q5: " + 1);
+  }
+  if(req.body.chk_checked18 != undefined){
+    checked.push("Q5: " + 2);
+  }
+  if(req.body.chk_checked19 != undefined){
+    checked.push("Q5: " + 3);
+  }
+  if(req.body.chk_checked20 != undefined){
+    checked.push("Q5: " + 4);
+  }
 //  console.log(checked);
   //console.log(req.body.chk_checked);
 //  console.log(req.body.chk_checked2);
@@ -185,19 +217,18 @@ app.post('/views/quizzes', function (req, res) {
           username: uN,
         //  testName: req.body.title,
           questions: q,
-      //    answers: [req.body.answer],
           correct: checked
 
         //  questions: req.body.question,
         //  answers: req.body.answer
-      });
+   });
 
-      t.save(function(err) {
-          if (err)
-             throw err;
-          else
-             console.log('saved data successfully...');
-      });
+    t.save(function(err) {
+        if (err)
+            throw err;
+        else
+           console.log('saved data successfully...');
+    });
 
     console.log(t);
     /*  db.collection('tests').save(t, (err, result) => {
@@ -243,6 +274,6 @@ app.get('/views/results', function (req, res) {
 
 
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+app.listen(8195, function () {
+  console.log('Example app listening on port 8195!')
 })

@@ -1,0 +1,19 @@
+/* your styles go here */
+img {
+    width:80px;
+    height: 80px;
+}
+
+#username{
+  margin-right: 10px;
+  height: 35px;
+}
+
+button{
+  padding-top: 6px;
+}
+
+.btn-sm{
+  height: 31px;
+  margin-bottom: 4px;
+}

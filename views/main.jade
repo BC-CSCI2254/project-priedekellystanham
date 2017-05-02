@@ -1,19 +1,40 @@
 doctype html
-html(lang='en')
+html
   head
     meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title Bootstrap Under Construction - Template by Bootstrapious.com
+    meta(name='description', content='')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
-  body
-    .jumbotron.text-center
-      h1 Quiz App
-      form(action="/views/main", method="post")
-        span.form-group
-          label(for='username') Username:
-          input#username.form-inline(type='username', name = 'username', placeholder='Enter Username')
-        button.btn.btn-default.btn-sm(type='submit') Submit
 
-    .container.text-center
-      img.img-rounded(src='http://www.bc.edu/publications/chronicle/FeaturesNewsTopstories/2011/features/gasson090811/_jcr_content/newscontent/textimage/image.img.jpg', width='600', height='350')
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel='stylesheet', href='css/font-awesome.min.css')
+    link#theme-stylesheet(rel='stylesheet', href='css/style.default.css')
+    link(rel='stylesheet', href='css/custom.css')
+    style
+      include css/bootstrap.min.css
+      include css/font-awesome.min.css
+      include css/style.default.css
+      include css/custom.css
+  body
+    .container-fluid
+      .row.intro
+        .col-md-6.col-sm-8.intro-left
+          .intro-left-content
+            p
+              img(src='https://www.printyourbrackets.com/ncaa-logos/boston-college-eagles-logo.png', width='600', height='350', alt='Template Logo')
+            h1 Test-X.
+            p.lead A test creator designed to work with CameraMouse - a BC initiative.
+            p
+              | Enter your username to create a new test for your student!
+            form(action="/views/main", method="post")
+              span.form-group
+                label(for='username')
+                input#username.form-inline(type='username', name = 'username', placeholder='Enter Username')
+              button.btn.btn-default.btn-sm(type='submit') Submit
+            p.credit
+              | © 2017 Boston College Computer Science Project 
+            // Please do not remove the backlink to bootstrapious unless you support us at http://bootstrapious.com/donate. It is part of the license conditions. Thanks for understanding :)
+        .col-md-6.col-sm-4.intro-right.background-gray(style="background-image: url('https://static1.squarespace.com/static/5537b4f7e4b095f8b42fbb6b/t/5537e85ce4b045c2379151e1/1429727327810/BCbig.jpg?format=2500w');")
+    // Google Analytics: change UA-XXXXX-X to be your site's ID.
+    //

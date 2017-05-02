@@ -1,0 +1,42 @@
+html, body{
+  height: 100%;
+}
+
+#question {
+  height: 100%;
+  width: 100%;
+}
+
+#a {
+  background-color: lightblue;
+  height:100px;
+  color:white;
+  padding-top: 15px;
+
+}
+#b {
+  background-color: lightblue;
+  height:100px;
+  color:white;
+  padding-top: 15px;
+
+}
+#c {
+  background-color: lightblue;
+  height:100px;
+  color:white;
+  padding-top: 15px;
+  margin-top: 480px;
+}
+#d {
+  background-color: lightblue;
+  height:100px;
+  color:white;
+  padding-top: 15px;
+  margin-top: 200px;
+  margin-top: 480px;
+}
+
+button{
+  margin-top: 500px;
+}

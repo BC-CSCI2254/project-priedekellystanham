@@ -35,7 +35,7 @@ width: 100%;
 }
 
 #questionid {
-  font-size: 28px;
+  font-size: 24px;
   margin-bottom
 }
 
@@ -53,4 +53,56 @@ width: 100%;
 
 #progressBar {
   width: 450px;
+}
+
+button{
+  margin-top: 20px;
+}
+
+.QuestionContainer {
+    margin-left: 20px;
+    margin-right: 200px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+
+}
+
+#questionNumber {
+    margin-top: 40px;
+}
+
+input {
+
+}
+
+.form-control#question1{
+    height: 54px;
+}
+
+#scroll {
+    margin-left: 20px;
+    padding-left: 20px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+    background-color: white;
+}
+
+
+
+#header {
+    margin-top: 30px;
+    padding-left: 40px;
+}
+
+#desc {
+    padding-right: 30px;
+    margin-right: 70px;
+}
+
+body {
+}
+
+#questionshow{
+  margin-top: 10px;
+  
 }
