@@ -19,7 +19,6 @@ var mongoose = require('mongoose');
 var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
 
-var quiz = require('./routes/quiz');
 
 var MONGODB_URL = process.env.MONGODB_URL || 'mongodb://priede:peach2233d@ds159220.mlab.com:59220/priede';
 mongoose.connect(MONGODB_URL);
@@ -74,30 +73,11 @@ app.post('/views/main', function (req, res) {
 })
 
 app.get('/views/quizzes', function (req, res) {
-  /*db.collection('tests').find().toArray((err, result) => {
-    if (err) return console.log(err)
-
-    var tests = [];
-
-    var i = 0;
-    var k = 0;
-    while(i != result.length){
-      if(result[i].username == uN){
-        tests[k] = result[i];
-      //  console.log(result[i]);
-        k++;
-      }
-      i++;
-    }
-
-    res.render('quizzes')
-  })*/
   res.render('quizzes');
 })
 
 app.post('/views/quizzes', function (req, res) {
 
-  console.log(req.body);
   var i = 0;
   var j = 0;
   var k = 0;
@@ -181,43 +161,11 @@ app.post('/views/quizzes', function (req, res) {
   if(req.body.chk_checked20 != undefined){
     checked.push("d");
   } else checked.push(0);
-//  console.log(checked);
-  //console.log(req.body.chk_checked);
-//  console.log(req.body.chk_checked2);
-
-//  console.log(req.body.chk_checked3);
-/*  var a = 5;
-  var b = 0;
-  var c = [];
-  while(b<2){
-    if(req.body.chk_checked1[b] == 'on'){
-      a = 0;
-    }
-    else if(req.body.chk_checked2[b] == 'on'){
-      a = 1;
-    }
-    else if(req.body.chk_checked3[b] == 'on'){
-      a = 2;
-    }
-    else if(req.body.chk_checked4[b] == 'on'){
-      a = 2;
-    }
-    c[b] = a;
-    b++;
-  }*/
-
-  //var r1 = req.body.chk_checked1;
-
-//  console.log(req.body.checkbox);
 
   var t = new Test({
           username: uN,
-        //  testName: req.body.title,
           questions: q,
           correct: checked
-
-        //  questions: req.body.question,
-        //  answers: req.body.answer
    });
 
     t.save(function(err) {
@@ -227,16 +175,7 @@ app.post('/views/quizzes', function (req, res) {
            console.log('saved data successfully...');
     });
 
-    console.log(t);
-    /*  db.collection('tests').save(t, (err, result) => {
-        if (err) return console.log(err)
-        console.log('saved to database')
-      })
-    console.log("redirect");*/
-
     res.redirect('show');
-    res.redirect('results');
-    //res.sendFile('QuestionPage.html', { root: path.join(__dirname, '/views') });
 });
 
 
@@ -251,7 +190,6 @@ app.get('/views/show', function (req, res) {
     while(i != result.length){
       if(result[i].username == uN){
         tests[k] = result[i];
-        //console.log(result[i]);
         k++;
       }
       i++;
@@ -264,7 +202,7 @@ app.get('/views/show', function (req, res) {
 
 app.post('/views/show', function (req, res) {
     res.redirect('results');
-  })
+})
 
 
 app.get('/views/results', function (req, res) {
@@ -278,7 +216,6 @@ app.get('/views/results', function (req, res) {
     while(i != result.length){
       if(result[i].username == uN){
         ftests[k] = result[i];
-        //console.log(result[i]);
         k++;
       }
       i++;

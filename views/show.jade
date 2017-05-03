@@ -3,6 +3,7 @@ html(lang='en')
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Test-X. Test Running ...
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
@@ -10,8 +11,7 @@ html(lang='en')
     link(href='/javascript/Final.js', type='text/javascript')
     style
       include stylesheets/Final.css
-    script
-      include javascript/Final.js
+
     script.
       var tests = !{JSON.stringify(tests)}
       var len = tests.length - 1;
@@ -20,6 +20,13 @@ html(lang='en')
 
       var xxx = 0;
       var correct = 0;
+
+      function finish() {
+        localStorage.setItem("correct", correct);
+        location.href = "results";
+      }
+
+      localStorage.setItem("correct", correct);
 
       function answerContent(correct){
       $('#correct').html(correct + "/5");
@@ -70,7 +77,7 @@ html(lang='en')
       if (isInArray(clicked, answerArray5)) {
       correct++;
       }
-      location.href = "results";
+      finish();
       }
       else {
         xxx = xxx+1;
@@ -81,6 +88,9 @@ html(lang='en')
         $('#d').html(tests[len].questions[xxx][4]);
         return xxx, correct;
       }
+      }
+      function home() {
+        location.href = "main";
       }
 
   body(onload='questionContent()')

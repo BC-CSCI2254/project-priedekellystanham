@@ -3,41 +3,165 @@ html(lang='en')
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Test-X. Results Page
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
     link(href='/stylesheets/Final.css', rel='stylesheet')
     link(href='/javascript/Final.js', type='text/javascript')
     style
-      include stylesheets/Final.css
+      include css/style.default.css
+      include stylesheets/results.css
     script
       include javascript/Final.js
-    script.
-      var finaltest = !{JSON.stringify(ftests)}
-      var len = finaltest.length - 1;
-      var user = finaltest[len].username;
-
-      function questionContent() {
-        $('#q1').html(finaltest[len].questions[0][0]);
-        $('#ans1').html(finaltest[len].questions[0][1]);
-        $('#ans2').html(finaltest[len].questions[0][2]);
-        $('#ans3').html(finaltest[len].questions[0][3]);
-        $('#ans4').html(finaltest[len].questions[0][4]);
-      }
-
     body(onload='questionContent()')
         .container
           header#results Results
-          h3#score Score: correct / 5
-          h4 What went wrong:
-            p#testcontent
-              #q1(style='font-size:')
-              #ans1  a
-              #ans2  b
-              #ans3  c
-              #ans4  d
+          h3#score
+          h4
+        .container
+          #one.floating-box Question 1
+            p#oneQ Question?
+            p#oneA a
+            p#oneB b
+            p#oneC c
+            p#oneD d
+          #two.floating-box Question 2
+            p#twoQ Question?
+            p#twoA a
+            p#twoB b
+            p#twoC c
+            p#twoD d
+          #three.floating-box Question 3
+            p#threeQ Question?
+            p#three 
+            p#threeB b
+            p#threeC c
+            p#threeD d
+          #four.floating-box Question 4
+            p#fourQ Question?
+            p#fourA a
+            p#fourB b
+            p#fourC c
+            p#fourD d
+          #five.floating-box Question 5
+            p#fiveQ Question?
+            p#fiveA a
+            p#fiveB b
+            p#fiveC c
+            p#fiveD d
+        .container
+          #twobuttons
+            button.btn.btn-default.btn-lg#home2(type='home', onclick=' home()') Home
+            button.btn.btn-default.btn-lg(type='tryagain', onclick=' tryagain()') Try Again?
 
+        script.
+              var finaltest = !{JSON.stringify(ftests)};
+              var len = finaltest.length - 1;
+              var user = finaltest[len].username;
 
-          button.btn.btn-default.btn-lg#home2(type='home', onclick=' home()') Home
-          button.btn.btn-default.btn-lg(type='tryagain', onclick=' tryagain()') Try Again?
-          !{JSON.stringify(ftests)}
+              var num = localStorage.getItem("correct");
+
+              document.getElementById("score").innerHTML = "Score: " + num + " correct / 5";
+
+              var answerArray1 = finaltest[len].correct.slice(0,4);
+              var answerArray2 = finaltest[len].correct.slice(4,8);
+              var answerArray3 = finaltest[len].correct.slice(8,11);
+              var answerArray4 = finaltest[len].correct.slice(12,16);
+              var answerArray5 = finaltest[len].correct.slice(16,20);
+
+              function isInArray(value, array) {
+                return array.indexOf(value) > -1;
+              }
+
+              function questionContent() {
+                $('#oneQ').html(finaltest[len].questions[0][0]);
+                $('#oneA').html(finaltest[len].questions[0][1]);
+                $('#oneB').html(finaltest[len].questions[0][2]);
+                $('#oneC').html(finaltest[len].questions[0][3]);
+                $('#oneD').html(finaltest[len].questions[0][4]);
+                $('#twoQ').html(finaltest[len].questions[1][0]);
+                $('#twoA').html(finaltest[len].questions[1][1]);
+                $('#twoB').html(finaltest[len].questions[1][2]);
+                $('#twoC').html(finaltest[len].questions[1][3]);
+                $('#twoD').html(finaltest[len].questions[1][4]);
+                $('#threeQ').html(finaltest[len].questions[2][0]);
+                $('#threeA').html(finaltest[len].questions[2][1]);
+                $('#threeB').html(finaltest[len].questions[2][2]);
+                $('#threeC').html(finaltest[len].questions[2][3]);
+                $('#threeD').html(finaltest[len].questions[2][4]);
+                $('#fourQ').html(finaltest[len].questions[3][0]);
+                $('#fourA').html(finaltest[len].questions[3][1]);
+                $('#fourB').html(finaltest[len].questions[3][2]);
+                $('#fourC').html(finaltest[len].questions[3][3]);
+                $('#fourD').html(finaltest[len].questions[3][4]);
+                $('#fiveQ').html(finaltest[len].questions[4][0]);
+                $('#fiveA').html(finaltest[len].questions[4][1]);
+                $('#fiveB').html(finaltest[len].questions[4][2]);
+                $('#fiveC').html(finaltest[len].questions[4][3]);
+                $('#fiveD').html(finaltest[len].questions[4][4]);
+                if(isInArray("a",answerArray1)) {
+                document.getElementById("oneA").style.border = "thick solid lightgreen";
+                }
+                if(isInArray("b",answerArray1)) {
+                document.getElementById("oneB").style.border = "thick solid lightgreen";
+                }
+                if(isInArray("c",answerArray1)) {
+                document.getElementById("oneC").style.border = "thick solid lightgreen";
+                }
+                if(isInArray("d",answerArray1)) {
+                document.getElementById("oneD").style.border = "thick solid lightgreen";
+                }
+
+                if(isInArray("a",answerArray2)) {
+                document.getElementById("twoA").style.border = "thick solid lightgreen";
+                }
+                if(isInArray("b",answerArray2)) {
+                document.getElementById("twoB").style.border = "thick solid lightgreen";
+                }
+                if(isInArray("c",answerArray2)) {
+                document.getElementById("twoC").style.border = "thick solid lightgreen";
+                }
+                if(isInArray("d",answerArray2)) {
+                document.getElementById("twoD").style.border = "thick solid lightgreen";
+                }
+
+                if(isInArray("a",answerArray3)) {
+                document.getElementById("threeA").style.border = "thick solid lightgreen";
+                }
+                if(isInArray("b",answerArray3)) {
+                document.getElementById("threeB").style.border = "thick solid lightgreen";
+                }
+                if(isInArray("c",answerArray3)) {
+                document.getElementById("threeC").style.border = "thick solid lightgreen";
+                }
+                if(isInArray("d",answerArray3)) {
+                document.getElementById("threeD").style.border = "thick solid lightgreen";
+                }
+
+                if(isInArray("a",answerArray4)) {
+                document.getElementById("fourA").style.border = "thick solid lightgreen";
+                }
+                if(isInArray("b",answerArray4)) {
+                document.getElementById("fourB").style.border = "thick solid lightgreen";
+                }
+                if(isInArray("c",answerArray4)) {
+                document.getElementById("fourC").style.border = "thick solid lightgreen";
+                }
+                if(isInArray("d",answerArray4)) {
+                document.getElementById("fourD").style.border = "thick solid lightgreen";
+                }
+
+                if(isInArray("a",answerArray5)) {
+                document.getElementById("fiveA").style.border = "thick solid lightgreen";
+                }
+                if(isInArray("b",answerArray5)) {
+                document.getElementById("fiveB").style.border = "thick solid lightgreen";
+                }
+                if(isInArray("c",answerArray5)) {
+                document.getElementById("fiveC").style.border = "thick solid lightgreen";
+                }
+                if(isInArray("d",answerArray5)) {
+                document.getElementById("fiveD").style.border = "thick solid lightgreen";
+                }
+              }

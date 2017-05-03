@@ -1,19 +1,27 @@
 
+#testc{
+  font-size: 30px;
+}
+#header{
+  padding-top: 10px;
+  margin-left: 50px;
+}
+
 #question {
 height: 100%;
 width: 100%;
 }
 
 .QuestionContainer {
-    margin-left: 20px;
+    margin-left: 70px;
     margin-right: 200px;
     margin-top: 30px;
     margin-bottom: 40px;
-
 }
 
 #questionNumber {
     margin-top: 40px;
+    font-size: 20px;
 }
 
 input {
@@ -148,9 +156,8 @@ input {
 
 @import url(http://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css);
 body{
-  background: #ECECEC;
   margin:0px ;
-  color:#333;
+  color:black;
 }
 #Finish{
   background: #ECECEC;
@@ -206,4 +213,13 @@ body{
 
 #testcontent{
   font-size: 10px;
+}
+
+.floating-box {
+    float: left;
+    width: 400px;
+    height: 200px;
+    margin: 10px;
+    border: 3px solid black;
+    font-size: 20px;
 }

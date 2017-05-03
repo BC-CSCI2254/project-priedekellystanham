@@ -3,19 +3,22 @@ html(lang='en')
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Test-X. Test-Creation Page
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
     link(rel='stylesheet', type='text/css', href='/views/stylesheets/Final.css')
     style
-      include stylesheets/Final.css
+      include css/font-awesome.min.css
+      include css/style.default.css
+      include stylesheets/quizzes.css
   body
     #header
-      h2(style='font:30px Georgia, Garamond, Serif') Test Creation Page
+      h2#testc(style='font:10px') Test Creation Page
       p#desc(style='margin-right:30%;')
         | Enter five questions below, and four multiple choice answer options. Selection which answer option(s) you'd like to mark as correct. Then click "done" to run the test! At the end, you will be brought to a statistics page, and have the option of running making a new test or running the same test again.
     .QuestionContainer
-      #scroll(style='height:470px;width:820px;border:1px solid #ccc;font:12px/16px Georgia, Garamond, Serif;overflow:auto;')
+      #scroll(style='height:400px;width:820px;border:1px solid #ccc;font:12px/16px Georgia, Garamond, Serif;overflow:auto; box-shadow: 5px 5px 14px #888888;')
         h3#questionNumber Question #1
         form#name-form(action="/views/quizzes", method="post")
           .form-group
@@ -177,4 +180,4 @@ html(lang='en')
                 input(type='checkbox', name='chk_checked20')
                 |  Correct Answer?
             input#ans4.form-control(type='Answer', name = "answer", placeholder='Enter possible answer')
-            button(style='margin-top: 20px;')#done.btn.btn-default.pull-right.btn-lg(type='submit') Done
+            button#done.btn.btn-default.pull-right.btn-lg(type='submit') Done
