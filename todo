@@ -1,16 +1,47 @@
 PORT NUMBER: 8195
 CSLAB1
 
-TODO
-1. JSON :: IP
-2. CS Lab Pushing
-3. Page render of stats (finish test) :: DONE
-4. fix / temp remove add question :: DONE
+---------------------------------
 
+1. Created to use with CameraMouse, a desktop app developed for the program
+EagleEyes through the campus school.
+- CameraMouse allows tracking of a students eyes ... problem was usability
+- Would only be able to work with online games
 
-Presenters!: you should plan for ~8 minutes, with just one person as the designated presenter.
-Your presentation should include
-1. a statement of the idea,
-2. a quick demo,
-3. a quick summary of the issues faced and the tools that you used and finally
-4. a minute or two for questions. A practice talk wouldn't hurt.
+- GOAL: goal of our web app is to make testing the students easier by displaying the questions
+at opposite edges of the screen
+- Shake of the head when the app is tracking their eye movement will not effect
+their answer choice
+
+Overview (Primary App Components):
+  1) MongoDB: store user test data and display questions, answers (mlab)
+  2) Jade (vs EJS) viewing engine with Mongo -> pull data and store
+  3) Server side rendering
+  4) Made w/ Node and Express
+
+2. Enter username: (USED MongoDB - form pulls through SERVER SIDE JADE RENDERING)
+Create Test and select answer options
+Run (PULLS JSON FILE sent from SERVER to view created tests)
+View Stats
+
+3. PROBLEMS
+  1) MongoDB - JSON var transfer to JS file // manipulation // schema
+     Solution: in-line script
+  2) Sending correct variable to another file
+     Solution: local storage
+  3) Form interpretation of checkboxes for correct answers
+     Solution: brute force id's for each box
+
+Future Goals:
+  1) Display and run pre-made test options
+  2) Show how (and save) the student answers
+
+- MongoDB: learning curve || creating a proper schema || sending JSON file of
+DB collection
+- JADE: choosing jade as VIEWING ENGINE for server side rendering || between EJS and Jade
+|| problems with connecting scripts and stylesheets || MAIN PROBLEM WITH SENDING JSON DB (solved with inline script ...)
+|| AUTO propogating questions and answers
+- Sending correct variable to multiple pages : just use local storage ... (reloading script files)
+- Interpreting check boxes for correct ans
+
+4. Questions
